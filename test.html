@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Mocha Tests</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.3.3/mocha.min.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="mocha"></div>
+    <div id="fixtures"></div>
+    <script src="../../node_modules/chai/chai.js"></script>
+    <script src="../../node_modules/mocha/mocha.js"></script>
+    <script src="../../node_modules/sinon/pkg/sinon.js"></script>
+    <script charset="utf-8" src="../templates/game/desktop/adx-custom-desktop.json"></script>
+    <script src="../build/base.js"></script>
+
+    <!-- Include any js unit tests here -->
+    <script>
+      if (window.initMochaPhantomJS) {
+        window.initMochaPhantomJS();
+      }
+
+      mocha.setup('bdd');
+      expect = chai.expect;
+    </script>
+    <script src="test.js"></script>
+    <script>
+      window.onload = function() {
+        // Have mocha run all tests when page loads
+        mocha.run();
+      }
+    </script>
+  </body>
+</html>
